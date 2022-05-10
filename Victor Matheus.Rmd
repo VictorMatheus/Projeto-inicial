@@ -1,0 +1,47 @@
+---
+title: "Untitled1"
+author: "Victor Matheus"
+date: '2022-05-02'
+output: html_document
+---
+```{r}
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+library(readr)
+library(stringr)
+
+```
+
+```{r Data}
+imdb <- readr::read_csv("imdb.csv")
+```
+
+```{r exercício01}
+#1.Teste aplicar a função glimpse() do pacote {dplyr} à base imdb. O que ela faz?
+glimpse(imdb)
+```
+
+```{r}
+#2. Crie uma tabela com apenas as colunas titulo, diretor, e orcamento. Salve em um objeto chamado imdb_simples.
+imdb_simples <- select(imdb, titulo, diretor, orcamento)
+imdb_simples 
+```
+
+```{r}
+#3. Selecione apenas as colunas ator_1, ator_2 e ator_3 usando a função auxiliar contains().
+select (imdb, ator_1, ator_2, ator_3)
+```
+
+```{r}
+#4. Usando a função select() (e suas funções auxiliares), escreva códigos que retornem a base IMDB sem as colunas ator_1, ator_2 e ator_3. Escreva todas as soluções diferentes que você conseguir pensar.
+select(imdb, -ator_1, -ator_2, -ator_3)
+```
+
+```{r}
+#5. Ordene os filmes em ordem crescente de ano e decrescente de receita e salve em um objeto chamado filmes_ordenados.
+filmes_ordenados <- arrange(imdb, ano, desc(receita))
+
+```
+
+
